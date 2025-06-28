@@ -7,10 +7,24 @@ A new Flutter project.
 This project is a starting point for a Flutter application.
 
 A few resources to get you started if this is your first Flutter project:
+# Moving Company Website 🚚
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+A modern, responsive website built with Flutter Web for a local moving company.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 💡 Features
+- Home page with services, banner, and contact info
+- Quote form with validation
+- Custom responsive layout
+- Styled service cards and contact section
+
+## 🔗 Live Demo
+Coming soon...
+
+## 📦 Built With
+- Flutter
+- Google Fonts
+- FontAwesome Flutter
+- EmailJS or Firebase (planned)
+
+## 🧑‍💻 Author
+Lavanya Mahajan
