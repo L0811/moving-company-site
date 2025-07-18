@@ -90,15 +90,23 @@ class _ContactSectionState extends State<ContactSection> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Center(
-                    child: Text(
-                      "GET YOUR FREE QUOTE",
-                      style: GoogleFonts.bebasNeue(
-                        fontSize: 48,
-                        color: const Color(0xff4a90e2),
-                        letterSpacing: 2,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 20,
+                        vertical: 10,
+                      ),
+                      color: const Color(0xFFFEE440), // Yellow background
+                      child: Text(
+                        "GET YOUR FREE QUOTE",
+                        style: GoogleFonts.bebasNeue(
+                          fontSize: 48,
+                          color: Colors.black, // Black text
+                          letterSpacing: 2,
+                        ),
                       ),
                     ),
                   ),
+
                   const SizedBox(height: 24),
 
                   // Name
@@ -174,7 +182,8 @@ class _ContactSectionState extends State<ContactSection> {
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         padding: const EdgeInsets.symmetric(vertical: 16),
-                        backgroundColor: const Color(0xff4a90e2),
+                        // backgroundColor: const Color(0xff4a90e2),
+                        backgroundColor: Color(0xFFFEE440),
                         textStyle: GoogleFonts.poppins(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,

@@ -1,253 +1,7 @@
-// import 'package:flutter/material.dart';
-// import 'package:google_fonts/google_fonts.dart';
-// import '../widgets/responsive_wrapper.dart';
-
-// class ServicesSection extends StatelessWidget {
-//   const ServicesSection({super.key});
-
-//   final List<_ServiceInfo> services = const [
-//     _ServiceInfo(
-//       icon: Icons.login,
-//       title: "Loading",
-//       description: [
-//         "Efficient loading of all your belongings",
-//         "Handled with care and speed",
-//       ],
-//       colors: [Color(0xfff7971e), Color(0xffffba00)],
-//       iconColor: Colors.deepOrange,
-//     ),
-//     _ServiceInfo(
-//       icon: Icons.logout,
-//       title: "Unloading",
-//       description: [
-//         "Safe unloading at your new location",
-//         "Ensuring nothing is damaged",
-//       ],
-//       colors: [Color(0xff56ab2f), Color(0xffa8e063)],
-//       iconColor: Color.fromARGB(255, 21, 95, 23),
-//     ),
-//     _ServiceInfo(
-//       icon: Icons.fire_truck,
-//       title: "Drive Truck",
-//       description: [
-//         "Professional drivers",
-//         "Timely and secure transport of your goods",
-//       ],
-//       colors: [Color(0xff00c6ff), Color(0xff0072ff)],
-//       iconColor: Color.fromARGB(255, 16, 72, 118),
-//     ),
-//     _ServiceInfo(
-//       icon: Icons.route,
-//       title: "Long Haul Moving",
-//       description: [
-//         "Managing long-distance moves",
-//         "Reliable logistics and tracking",
-//       ],
-//       colors: [Color(0xffee9ca7), Color(0xffffdde1)],
-//       iconColor: Colors.pink,
-//     ),
-//     _ServiceInfo(
-//       icon: Icons.wrap_text,
-//       title: "Wrapping Furniture",
-//       description: [
-//         "Protective wrapping of furniture",
-//         "Prevents scratches and damage",
-//       ],
-//       colors: [Color(0xff8e2de2), Color(0xff4a00e0)],
-//       iconColor: Colors.purpleAccent,
-//     ),
-//     _ServiceInfo(
-//       icon: Icons.chair_alt,
-//       title: "Dismantling & Assembling Furniture",
-//       description: [
-//         "Careful dismantling of furniture",
-//         "Reassembling at your convenience",
-//       ],
-//       colors: [Color(0xffff416c), Color(0xffff4b2b)],
-//       iconColor: Color.fromARGB(255, 97, 29, 29),
-//     ),
-//     _ServiceInfo(
-//       icon: Icons.cleaning_services,
-//       title: "House Cleaning",
-//       description: [
-//         "Thorough cleaning services",
-//         "Spotless before or after moving",
-//       ],
-//       colors: [Color(0xff11998e), Color(0xff38ef7d)],
-//       iconColor: Color.fromARGB(255, 4, 85, 77),
-//     ),
-//     _ServiceInfo(
-//       icon: Icons.window,
-//       title: "Window Cleaning",
-//       description: [
-//         "Professional window cleaning",
-//         "Brighten your home or office",
-//       ],
-//       colors: [Color(0xff36d1dc), Color(0xff5b86e5)],
-//       iconColor: Color.fromARGB(255, 25, 78, 102),
-//     ),
-//     _ServiceInfo(
-//       icon: Icons.business,
-//       title: "Office Cleaning",
-//       description: [
-//         "Reliable cleaning tailored to your needs",
-//         "Maintain a productive workspace",
-//       ],
-//       colors: [Color(0xfff7971e), Color(0xffffba00)],
-//       iconColor: Color.fromARGB(255, 149, 100, 36),
-//     ),
-//   ];
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return ResponsiveWrapper(
-//       child: SingleChildScrollView(
-//         padding: const EdgeInsets.all(24),
-//         child: Column(
-//           crossAxisAlignment: CrossAxisAlignment.center,
-//           children: [
-//             Text(
-//               "SERVICES WE OFFER",
-//               style: GoogleFonts.bangers(
-//                 fontSize: 52,
-//                 fontWeight: FontWeight.bold,
-//                 color: const Color.fromARGB(255, 110, 164, 188),
-//                 letterSpacing: 1.5,
-//               ),
-//             ),
-//             const SizedBox(height: 36),
-//             Wrap(
-//               spacing: 24,
-//               runSpacing: 24,
-//               alignment: WrapAlignment.center,
-//               children:
-//                   services
-//                       .map(
-//                         (service) => _ServiceCard(
-//                           icon: service.icon,
-//                           title: service.title,
-//                           description: service.description,
-//                           colors: service.colors,
-//                           iconColor: service.iconColor,
-//                         ),
-//                       )
-//                       .toList(),
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
-
-// class _ServiceInfo {
-//   final IconData icon;
-//   final String title;
-//   final List<String> description; // Changed to List<String>
-//   final List<Color> colors;
-//   final Color iconColor;
-
-//   const _ServiceInfo({
-//     required this.icon,
-//     required this.title,
-//     required this.description,
-//     required this.colors,
-//     required this.iconColor,
-//   });
-// }
-
-// class _ServiceCard extends StatelessWidget {
-//   final IconData icon;
-//   final String title;
-//   final List<String> description;
-//   final List<Color> colors;
-//   final Color iconColor;
-
-//   const _ServiceCard({
-//     required this.icon,
-//     required this.title,
-//     required this.description,
-//     required this.colors,
-//     required this.iconColor,
-//   });
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       width: 480,
-//       padding: const EdgeInsets.all(20),
-//       decoration: BoxDecoration(
-//         gradient: LinearGradient(
-//           colors: colors,
-//           begin: Alignment.topLeft,
-//           end: Alignment.bottomRight,
-//         ),
-//         borderRadius: BorderRadius.circular(20),
-//         boxShadow: [
-//           BoxShadow(
-//             color: colors.last.withOpacity(0.5),
-//             blurRadius: 15,
-//             offset: const Offset(0, 8),
-//           ),
-//         ],
-//       ),
-//       child: Column(
-//         crossAxisAlignment: CrossAxisAlignment.start,
-//         children: [
-//           Row(
-//             children: [
-//               Icon(icon, size: 44, color: iconColor),
-//               const SizedBox(width: 16),
-//               Expanded(
-//                 child: Text(
-//                   title,
-//                   style: GoogleFonts.anton(
-//                     fontSize: 28,
-//                     fontWeight: FontWeight.bold,
-//                     color: Colors.white,
-//                     letterSpacing: 2,
-//                   ),
-//                 ),
-//               ),
-//             ],
-//           ),
-//           const SizedBox(height: 14),
-//           ...description.map(
-//             (line) => Padding(
-//               padding: const EdgeInsets.only(bottom: 8),
-//               child: Row(
-//                 crossAxisAlignment: CrossAxisAlignment.start,
-//                 children: [
-//                   const Text(
-//                     "•  ",
-//                     style: TextStyle(
-//                       color: Colors.white70,
-//                       fontSize: 20,
-//                       height: 1.4,
-//                     ),
-//                   ),
-//                   Expanded(
-//                     child: Text(
-//                       line,
-//                       style: GoogleFonts.openSans(
-//                         fontSize: 18,
-//                         color: Colors.white.withOpacity(0.9),
-//                         height: 1.4,
-//                       ),
-//                     ),
-//                   ),
-//                 ],
-//               ),
-//             ),
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-// }
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../widgets/responsive_wrapper.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ServicesSection extends StatelessWidget {
   const ServicesSection({super.key});
@@ -263,8 +17,9 @@ class ServicesSection extends StatelessWidget {
         "Skilled crew ensuring safety and speed",
         "Flexible scheduling to fit your timeline",
       ],
-      colors: [Color(0xfff7971e), Color(0xffffba00)],
-      iconColor: Colors.deepOrange,
+      colors: [Color(0xFFFFFFFF), Color.fromARGB(255, 198, 196, 196)],
+      iconColor: Color(0xFFFFB300),
+      link: "https://yourwebsite.com/loading",
     ),
     _ServiceInfo(
       icon: Icons.logout,
@@ -276,8 +31,9 @@ class ServicesSection extends StatelessWidget {
         "Inspection of items to ensure safety",
         "Friendly crew assisting with heavy items",
       ],
-      colors: [Color(0xff56ab2f), Color(0xffa8e063)],
-      iconColor: Color.fromARGB(255, 21, 95, 23),
+      colors: [Color(0xFFFFFFFF), Color.fromARGB(255, 198, 196, 196)],
+      iconColor: Color(0xFFFFB300),
+      link: "https://yourwebsite.com/loading",
     ),
     _ServiceInfo(
       icon: Icons.fire_truck,
@@ -289,8 +45,9 @@ class ServicesSection extends StatelessWidget {
         "GPS tracking for real-time updates",
         "Insurance coverage for peace of mind",
       ],
-      colors: [Color(0xff00c6ff), Color(0xff0072ff)],
-      iconColor: Color.fromARGB(255, 16, 72, 118),
+      colors: [Color(0xFFFFFFFF), Color.fromARGB(255, 198, 196, 196)],
+      iconColor: Color(0xFFFFB300),
+      link: "https://yourwebsite.com/loading",
     ),
     _ServiceInfo(
       icon: Icons.route,
@@ -302,8 +59,9 @@ class ServicesSection extends StatelessWidget {
         "Regular status updates throughout the move",
         "Customer support available 24/7",
       ],
-      colors: [Color(0xffee9ca7), Color(0xffffdde1)],
-      iconColor: Colors.pink,
+      colors: [Color(0xFFFFFFFF), Color.fromARGB(255, 198, 196, 196)],
+      iconColor: Color(0xFFFFB300),
+      link: "https://yourwebsite.com/loading",
     ),
     _ServiceInfo(
       icon: Icons.wrap_text,
@@ -315,8 +73,9 @@ class ServicesSection extends StatelessWidget {
         "Ensures scratch and dust protection",
         "Professional techniques to secure wrapping",
       ],
-      colors: [Color(0xff8e2de2), Color(0xff4a00e0)],
-      iconColor: Colors.purpleAccent,
+      colors: [Color(0xFFFFFFFF), Color.fromARGB(255, 198, 196, 196)],
+      iconColor: Color(0xFFFFB300),
+      link: "https://yourwebsite.com/loading",
     ),
     _ServiceInfo(
       icon: Icons.chair_alt,
@@ -328,8 +87,9 @@ class ServicesSection extends StatelessWidget {
         "Reassembling at your new location",
         "Handling delicate and heavy furniture safely",
       ],
-      colors: [Color(0xffff416c), Color(0xffff4b2b)],
-      iconColor: Color.fromARGB(255, 97, 29, 29),
+      colors: [Color(0xFFFFFFFF), Color.fromARGB(255, 198, 196, 196)],
+      iconColor: Color(0xFFFFB300),
+      link: "https://yourwebsite.com/loading",
     ),
     _ServiceInfo(
       icon: Icons.cleaning_services,
@@ -341,8 +101,9 @@ class ServicesSection extends StatelessWidget {
         "Removal of trash and debris",
         "Flexible scheduling to suit your needs",
       ],
-      colors: [Color(0xff11998e), Color(0xff38ef7d)],
-      iconColor: Color.fromARGB(255, 4, 85, 77),
+      colors: [Color(0xFFFFFFFF), Color.fromARGB(255, 198, 196, 196)],
+      iconColor: Color(0xFFFFB300),
+      link: "https://yourwebsite.com/loading",
     ),
     _ServiceInfo(
       icon: Icons.window,
@@ -354,8 +115,9 @@ class ServicesSection extends StatelessWidget {
         "High-reach window cleaning capabilities",
         "Residential and commercial window services",
       ],
-      colors: [Color(0xff36d1dc), Color(0xff5b86e5)],
-      iconColor: Color.fromARGB(255, 25, 78, 102),
+      colors: [Color(0xFFFFFFFF), Color.fromARGB(255, 198, 196, 196)],
+      iconColor: Color(0xFFFFB300),
+      link: "https://yourwebsite.com/loading",
     ),
     _ServiceInfo(
       icon: Icons.business,
@@ -367,8 +129,9 @@ class ServicesSection extends StatelessWidget {
         "Flexible hours to minimize disruption",
         "Professional and trustworthy staff",
       ],
-      colors: [Color(0xfff7971e), Color(0xffffba00)],
-      iconColor: Color.fromARGB(255, 149, 100, 36),
+      colors: [Color(0xFFFFFFFF), Color.fromARGB(255, 198, 196, 196)],
+      iconColor: Color(0xFFFFB300),
+      link: "https://yourwebsite.com/loading",
     ),
   ];
 
@@ -385,7 +148,8 @@ class ServicesSection extends StatelessWidget {
               style: GoogleFonts.bangers(
                 fontSize: 52,
                 fontWeight: FontWeight.bold,
-                color: const Color.fromARGB(255, 110, 164, 188),
+                //color: const Color.fromARGB(255, 110, 164, 188),
+                color: Color(0xFFFFB300),
                 letterSpacing: 1.5,
               ),
             ),
@@ -403,6 +167,7 @@ class ServicesSection extends StatelessWidget {
                           description: service.description,
                           colors: service.colors,
                           iconColor: service.iconColor,
+                          link: service.link,
                         ),
                       )
                       .toList(),
@@ -420,6 +185,7 @@ class _ServiceInfo {
   final List<String> description; // List of bullet points now
   final List<Color> colors;
   final Color iconColor;
+  final String link;
 
   const _ServiceInfo({
     required this.icon,
@@ -427,95 +193,155 @@ class _ServiceInfo {
     required this.description,
     required this.colors,
     required this.iconColor,
+    required this.link,
   });
 }
 
-class _ServiceCard extends StatelessWidget {
+class _ServiceCard extends StatefulWidget {
   final IconData icon;
   final String title;
   final List<String> description;
   final List<Color> colors;
   final Color iconColor;
+  final String link; // Optional: For launching a URL
 
   const _ServiceCard({
+    super.key,
     required this.icon,
     required this.title,
     required this.description,
     required this.colors,
     required this.iconColor,
+    this.link = 'https://example.com', // Replace with real URLs
   });
 
   @override
+  State<_ServiceCard> createState() => _ServiceCardState();
+}
+
+class _ServiceCardState extends State<_ServiceCard> {
+  bool _isHovered = false;
+
+  void _launchURL() async {
+    final uri = Uri.parse(widget.link);
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri, webOnlyWindowName: '_blank');
+    } else {
+      throw 'Could not launch ${widget.link}';
+    }
+  }
+
+  void _handleTap(BuildContext context) {
+    Navigator.pushNamed(context, '/contact');
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 480,
-      padding: const EdgeInsets.all(20),
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: colors,
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-        ),
-        borderRadius: BorderRadius.circular(20),
-        boxShadow: [
-          BoxShadow(
-            color: colors.last.withOpacity(0.5),
-            blurRadius: 15,
-            offset: const Offset(0, 8),
-          ),
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Icon(icon, size: 44, color: iconColor),
-              const SizedBox(width: 16),
-              Expanded(
-                child: Text(
-                  title,
-                  style: GoogleFonts.anton(
-                    fontSize: 28,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                    letterSpacing: 2,
-                  ),
-                ),
+    final hoveredColors =
+        widget.colors
+            .map((color) => _isHovered ? _darken(color, 0.1) : color)
+            .toList();
+
+    return MouseRegion(
+      onEnter: (_) => setState(() => _isHovered = true),
+      onExit: (_) => setState(() => _isHovered = false),
+      cursor: SystemMouseCursors.click,
+      child: GestureDetector(
+        // onTap: _launchURL,
+        onTap: () => _handleTap(context),
+        child: AnimatedScale(
+          scale: _isHovered ? 1.03 : 1.0,
+          duration: const Duration(milliseconds: 200),
+          child: Container(
+            width: 480,
+            padding: const EdgeInsets.all(20),
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: hoveredColors,
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
               ),
-            ],
-          ),
-          const SizedBox(height: 14),
-          ...description.map(
-            (line) => Padding(
-              padding: const EdgeInsets.only(bottom: 8),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    "•  ",
-                    style: TextStyle(
-                      color: Colors.white70,
-                      fontSize: 20,
-                      height: 1.4,
-                    ),
-                  ),
-                  Expanded(
-                    child: Text(
-                      line,
-                      style: GoogleFonts.openSans(
-                        fontSize: 18,
-                        color: Colors.white.withOpacity(0.9),
-                        height: 1.4,
+              borderRadius: BorderRadius.circular(20),
+              boxShadow: [
+                BoxShadow(
+                  color: hoveredColors.last.withOpacity(0.5),
+                  blurRadius: 15,
+                  offset: const Offset(0, 8),
+                ),
+              ],
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Icon(widget.icon, size: 44, color: widget.iconColor),
+                    const SizedBox(width: 16),
+                    Expanded(
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 12,
+                          vertical: 6,
+                        ),
+                        decoration: BoxDecoration(
+                          color: Color(0xFFFFD54F), // Amber yellow background
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Text(
+                          widget.title,
+                          style: GoogleFonts.anton(
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                            letterSpacing: 2,
+                          ),
+                        ),
                       ),
                     ),
+                  ],
+                ),
+                const SizedBox(height: 14),
+                ...widget.description.map(
+                  (line) => Padding(
+                    padding: const EdgeInsets.only(bottom: 8),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          "•  ",
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 20,
+                            height: 1.4,
+                          ),
+                        ),
+                        Expanded(
+                          child: Text(
+                            line,
+                            style: GoogleFonts.openSans(
+                              fontSize: 18,
+                              color: Colors.black.withOpacity(0.9),
+                              height: 1.4,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
-        ],
+        ),
       ),
     );
+  }
+
+  Color _darken(Color color, [double amount = 0.1]) {
+    final hsl = HSLColor.fromColor(color);
+    final darkerHsl = hsl.withLightness(
+      (hsl.lightness - amount).clamp(0.0, 1.0),
+    );
+    return darkerHsl.toColor();
   }
 }

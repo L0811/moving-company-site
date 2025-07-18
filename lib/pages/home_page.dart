@@ -40,12 +40,12 @@ class HomePage extends StatelessWidget {
                     ),
                     const SizedBox(width: 12),
                     Text(
-                      'MOVING SQUAD',
+                      'LIFT & LOAD',
                       style: GoogleFonts.montserrat(
                         fontSize: 62,
                         fontWeight: FontWeight.bold,
                         letterSpacing: 3.5,
-                        color: Colors.white,
+                        color: Colors.black,
                       ),
                     ),
                   ],
@@ -53,48 +53,61 @@ class HomePage extends StatelessWidget {
               ),
             ),
           ),
-          backgroundColor: const Color.fromARGB(255, 94, 130, 168),
+          //backgroundColor: const Color.fromARGB(255, 94, 130, 168),
+          backgroundColor: const Color.fromARGB(255, 255, 255, 255),
           bottom: PreferredSize(
             preferredSize: const Size.fromHeight(kToolbarHeight),
             child: Center(
               child: SizedBox(
                 width: 1200,
-                child: TabBar(
-                  labelColor: Colors.white,
-                  unselectedLabelColor: Colors.white70,
-                  indicatorColor: Colors.white,
-                  tabs: const [
-                    Tab(
-                      child: Text(
-                        'About',
-                        style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 1.5,
+                child: Container(
+                  // labelColor: Color.fromARGB(207, 226, 159, 0),
+                  // unselectedLabelColor: Color.fromARGB(207, 226, 159, 0),
+                  // indicatorColor: const Color(0xFFFFD54F),
+                  // // indicatorColor: Color.fromARGB(207, 226, 159, 0),
+                  color: const Color.fromARGB(
+                    207,
+                    226,
+                    159,
+                    0,
+                  ), // Yellow background
+                  child: const TabBar(
+                    labelColor: Colors.black, // Selected text color
+                    unselectedLabelColor: Colors.black, // Unselected text
+                    indicatorColor: Color(0xFFFFD54F),
+                    tabs: const [
+                      Tab(
+                        child: Text(
+                          'ABOUT',
+                          style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: 1.5,
+                          ),
                         ),
                       ),
-                    ),
-                    Tab(
-                      child: Text(
-                        'Services',
-                        style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 1.5,
+                      Tab(
+                        child: Text(
+                          'SERVICES',
+                          style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: 1.5,
+                          ),
                         ),
                       ),
-                    ),
-                    Tab(
-                      child: Text(
-                        'Contact',
-                        style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 1.5,
+                      Tab(
+                        child: Text(
+                          'CONTACT',
+                          style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: 1.5,
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -106,7 +119,8 @@ class HomePage extends StatelessWidget {
           ),
         ),
         bottomNavigationBar: Container(
-          color: const Color.fromARGB(255, 94, 130, 168),
+          // color: const Color.fromARGB(255, 94, 130, 168),
+          color: Color(0xFFFFFF),
           child: SizedBox(
             height: 120,
             child: Padding(
@@ -123,12 +137,18 @@ class HomePage extends StatelessWidget {
                         child: const Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            Icon(Icons.phone, color: Colors.white, size: 24),
+                            //Icon(Icons.phone, color: Colors.white, size: 24),
+                            Icon(
+                              Icons.phone,
+                              color: Color(0xFFFFB300),
+                              size: 24,
+                            ),
+
                             SizedBox(width: 8),
                             Text(
                               "Call Us",
                               style: TextStyle(
-                                color: Colors.white,
+                                color: Color(0xFFFFB300),
                                 fontSize: 26,
                               ),
                             ),
@@ -144,14 +164,14 @@ class HomePage extends StatelessWidget {
                           children: [
                             Icon(
                               FontAwesomeIcons.instagram,
-                              color: Colors.white,
+                              color: Color(0xFFFFB300),
                               size: 22,
                             ),
                             SizedBox(width: 8),
                             Text(
                               "Instagram",
                               style: TextStyle(
-                                color: Colors.white,
+                                color: Color(0xFFFFB300),
                                 fontSize: 26,
                               ),
                             ),
@@ -163,12 +183,12 @@ class HomePage extends StatelessWidget {
                         child: const Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            Icon(Icons.sms, color: Colors.white, size: 24),
+                            Icon(Icons.sms, color: Color(0xFFFFB300), size: 24),
                             SizedBox(width: 8),
                             Text(
                               "Text Us",
                               style: TextStyle(
-                                color: Colors.white,
+                                color: Color(0xFFFFB300),
                                 fontSize: 26,
                               ),
                             ),
@@ -180,7 +200,10 @@ class HomePage extends StatelessWidget {
                   const SizedBox(height: 12),
                   const Text(
                     "© 2025 Lavanya Mahajan. All rights reserved.",
-                    style: TextStyle(color: Colors.white70, fontSize: 16),
+                    style: TextStyle(
+                      color: Color.fromARGB(179, 112, 111, 111),
+                      fontSize: 16,
+                    ),
                   ),
                 ],
               ),

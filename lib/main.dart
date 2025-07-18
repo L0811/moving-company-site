@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'MOVING SQUAD',
+      title: 'LIFT & LOAD',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
@@ -20,8 +20,10 @@ class MyApp extends StatelessWidget {
         ),
         scaffoldBackgroundColor: Colors.grey[100],
         appBarTheme: AppBarTheme(
-          backgroundColor: const Color.fromARGB(255, 94, 130, 168),
-          foregroundColor: Colors.white,
+          // backgroundColor: const Color.fromARGB(255, 94, 130, 168),
+          // foregroundColor: Colors.white,
+          backgroundColor: const Color.fromARGB(255, 143, 113, 6),
+          foregroundColor: const Color.fromARGB(255, 5, 0, 0),
           elevation: 2,
           titleTextStyle: TextStyle(
             fontSize: 20,
@@ -36,8 +38,10 @@ class MyApp extends StatelessWidget {
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-            backgroundColor: const Color.fromARGB(255, 94, 130, 168),
-            foregroundColor: Colors.white,
+            // backgroundColor: const Color.fromARGB(255, 94, 130, 168),
+            // foregroundColor: Colors.white,
+            backgroundColor: const Color.fromARGB(255, 143, 113, 6),
+            foregroundColor: const Color.fromARGB(255, 5, 0, 0),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8),
             ),

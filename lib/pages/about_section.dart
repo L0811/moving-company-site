@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../widgets/responsive_wrapper.dart';
+import 'dart:async';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class AboutSection extends StatelessWidget {
   const AboutSection({super.key});
@@ -32,12 +35,30 @@ class AboutSection extends StatelessWidget {
                     ),
                   ),
                   alignment: Alignment.center,
-                  child: Text(
-                    "Meet the Moving Squad",
-                    style: GoogleFonts.bebasNeue(
-                      fontSize: 52,
-                      color: Colors.white,
-                      letterSpacing: 2,
+                  child: RichText(
+                    textAlign: TextAlign.center,
+                    text: TextSpan(
+                      style: GoogleFonts.bebasNeue(
+                        fontSize: 52,
+                        color: Colors.white,
+                        letterSpacing: 2,
+                      ),
+                      children: [
+                        const TextSpan(
+                          text: 'Meet the Lift & Load CONTACT US, GET YOUR ',
+                        ),
+                        TextSpan(
+                          text: 'FREE',
+                          style: const TextStyle(
+                            backgroundColor:
+                                Colors.yellowAccent, // Highlight background
+                            color:
+                                Colors
+                                    .black, // Text color to contrast background
+                          ),
+                        ),
+                        const TextSpan(text: ' QUOTE TODAY'),
+                      ],
                     ),
                   ),
                 ),
@@ -76,7 +97,7 @@ class AboutSection extends StatelessWidget {
                             ),
                             const SizedBox(width: 10),
                             Text(
-                              "About Moving Squad",
+                              "About Lift & Load",
                               style: GoogleFonts.oswald(
                                 fontSize: 60,
                                 fontWeight: FontWeight.w900,
@@ -87,7 +108,7 @@ class AboutSection extends StatelessWidget {
                         ),
                         const SizedBox(height: 20),
                         Text(
-                          "With over 3 years of hands-on experience, Moving Squad has moved hundreds of clients throughout Ontario — from city apartments to full homes and long-distance relocations.",
+                          "With over 3 years of hands-on experience, Lift and Load Squad has moved hundreds of clients throughout Ontario — from city apartments to full homes and long-distance relocations.",
                           style: GoogleFonts.rubik(
                             fontSize: 38,
                             height: 1.7,
@@ -195,6 +216,21 @@ class AboutSection extends StatelessWidget {
                       ),
                     ],
                   ),
+
+                  //
+                  const SizedBox(height: 40),
+                  const AutoReviewCarousel(),
+                  Text(
+                    "More Customer Love",
+                    style: GoogleFonts.bebasNeue(
+                      fontSize: 42,
+                      color: Color.fromARGB(255, 44, 77, 95),
+                    ),
+                  ),
+
+                  const SizedBox(height: 20),
+
+                  SizedBox(height: 180, child: _MiniReviewCarousel()),
                 ],
               ),
             ),
@@ -267,7 +303,7 @@ class ReviewCard extends StatelessWidget {
       child: Column(
         children: [
           CircleAvatar(radius: 252, backgroundImage: AssetImage(imagePath)),
-          const SizedBox(height: 12),
+          const SizedBox(height: 12, width: 30),
           Text(
             name,
             style: GoogleFonts.oswald(
@@ -292,6 +328,249 @@ class ReviewCard extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class AutoReviewCarousel extends StatefulWidget {
+  const AutoReviewCarousel({super.key});
+
+  @override
+  State<AutoReviewCarousel> createState() => _AutoReviewCarouselState();
+}
+
+class _AutoReviewCarouselState extends State<AutoReviewCarousel> {
+  final PageController _controller = PageController(viewportFraction: 0.85);
+  int _currentPage = 0;
+
+  final List<Map<String, String>> reviews = [
+    {
+      "text":
+          "Absolutely amazing service. Everything was packed so well and nothing broke. Highly recommend to all my friends!",
+      "name": "Tanya B.",
+      "date": "March 2025",
+    },
+    {
+      "text":
+          "Reliable, on-time, and very friendly. They even helped me clean up. Incredible moving experience.",
+      "name": "Leo Tran",
+      "date": "Feb 2025",
+    },
+    {
+      "text":
+          "We had to move on a snowy day and these guys made it happen without a hiccup. 10/10 would use again.",
+      "name": "Dani W.",
+      "date": "January 2025",
+    },
+    {
+      "text":
+          "Loved the team’s energy and organization. The move went faster than expected and nothing was scratched.",
+      "name": "Nina Singh",
+      "date": "May 2025",
+    },
+  ];
+
+  @override
+  void initState() {
+    super.initState();
+    Timer.periodic(const Duration(seconds: 2), (timer) {
+      if (_controller.hasClients) {
+        int nextPage = (_currentPage + 1) % reviews.length;
+        _controller.animateToPage(
+          nextPage,
+          duration: const Duration(milliseconds: 500),
+          curve: Curves.easeInOut,
+        );
+        setState(() {
+          _currentPage = nextPage;
+        });
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 220,
+      child: PageView.builder(
+        controller: _controller,
+        itemCount: reviews.length,
+        itemBuilder: (context, index) {
+          final review = reviews[index];
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12),
+            child: Container(
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                gradient: const LinearGradient(
+                  colors: [Color(0xffe0f7fa), Color(0xfffce4ec)],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
+                borderRadius: BorderRadius.circular(16),
+                boxShadow: [
+                  BoxShadow(
+                    blurRadius: 8,
+                    color: Colors.grey.withOpacity(0.3),
+                    offset: const Offset(0, 4),
+                  ),
+                ],
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    '"${review['text']}"',
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.fredoka(
+                      fontSize: 16,
+                      color: Colors.teal[900],
+                      height: 1.4,
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+                  Text(
+                    "- ${review['name']} (${review['date']})",
+                    style: GoogleFonts.fredoka(
+                      fontSize: 13,
+                      color: Colors.black54,
+                    ),
+                  ),
+                  const SizedBox(height: 6),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: List.generate(
+                      5,
+                      (_) =>
+                          const Icon(Icons.star, size: 16, color: Colors.amber),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+        },
+      ),
+    );
+  }
+}
+
+class _MiniReviewCarousel extends StatefulWidget {
+  const _MiniReviewCarousel({super.key});
+
+  @override
+  State<_MiniReviewCarousel> createState() => _MiniReviewCarouselState();
+}
+
+class _MiniReviewCarouselState extends State<_MiniReviewCarousel> {
+  final PageController _controller = PageController(viewportFraction: 0.6);
+
+  final List<Map<String, dynamic>> _reviews = [
+    {
+      "name": "Ryan G.",
+      "date": "July 2025",
+      "stars": 5,
+      "text":
+          "Lift & Load Squad exceeded all my expectations. From the moment they arrived, the team was organized, polite, and incredibly efficient. They handled my delicate items like antiques and glassware with extreme care, and not a single item was damaged. The best moving experience I’ve ever had.",
+    },
+    {
+      "name": "Angela M.",
+      "date": "June 2025",
+      "stars": 5,
+      "text":
+          "We were really stressed about our move, especially with two kids and a dog in the house. But the crew made everything so smooth. They were friendly, communicative, and very well-coordinated. We didn’t have to lift a finger — they even reassembled our beds and cleaned up after. A+ service!",
+    },
+    {
+      "name": "Leo Tran",
+      "date": "March 2025",
+      "stars": 5,
+      "text":
+          "I’ve moved many times over the years and this was by far the most professional and pleasant experience. The team showed up right on time, packed everything securely, and even offered to help with unpacking. Their positive attitude really made a difference during a stressful time.",
+    },
+    {
+      "name": "Michelle Y.",
+      "date": "March 2025",
+      "stars": 5,
+      "text":
+          "Lift and Load Squad didn’t just move our stuff — they gave us peace of mind. The entire crew worked like a well-oiled machine. They kept us updated at every step, were patient with our questions, and even helped us decide the best layout for our new living room. True professionals!",
+    },
+    {
+      "name": "Jared Cole",
+      "date": "February 2025",
+      "stars": 5,
+      "text":
+          "I was especially impressed by how well they handled the long-haul part of our move. Everything arrived in perfect condition, right on time. The driver even gave us ETA updates as he got closer. I would not hesitate to hire them again or recommend them to friends and family.",
+    },
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 160,
+      child: PageView.builder(
+        controller: _controller,
+        itemCount: _reviews.length,
+        itemBuilder: (context, index) {
+          final review = _reviews[index];
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            child: SizedBox(
+              width: 240,
+              child: Card(
+                elevation: 5,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                color: const Color(0xffe0f2f1),
+                child: Padding(
+                  padding: const EdgeInsets.all(12),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        '"${review['text']}"',
+                        textAlign: TextAlign.center,
+                        style: GoogleFonts.fredoka(
+                          fontSize: 14,
+                          color: Colors.teal[900],
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          ...List.generate(
+                            review['stars'],
+                            (_) => const Icon(
+                              Icons.star,
+                              size: 14,
+                              color: Colors.deepOrange,
+                            ),
+                          ),
+                          const SizedBox(width: 8),
+                          Text(
+                            "${review['name']} | ${review['date']}",
+                            style: GoogleFonts.bangers(
+                              fontSize: 12,
+                              color: Colors.purple[800],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          );
+        },
       ),
     );
   }
